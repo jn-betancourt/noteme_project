@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='css/homepage.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>HOLA MUNDO</title>
+</head>
+<body>
+    <header>
+        <div class="contenedor-header">
+            <div class="contenido" id="titulo"> Noteme :) </div>
+            <div class="contenido" id="register"> <a href="/signup"> register </a> </div>
+            <div class="contenido" id="login"> <a href="{{url_for('auth.login')}}"> log in </a> </div>
+            <div class="contenido" id="logout"> <a href="{{url_for('auth.logout')}}"> log out </a></div>
+        </div>
+    </header>
+    <h1>HOLA MUNDO!</h1>
+    {% if name %}
+    <p>HOLA {{ name }}</p>
+    <p>Tu contraseña es {{password}} </p>
+    {% else %} <p> No ha iniciado sesion </p> {% endif %}
+    <br>
+    <h3>{{ lenght }}</h3>
+    {% for user in users %}
+        <p>{{ user.name }}</p>
+    {% endfor %}
+</body>
+</html>

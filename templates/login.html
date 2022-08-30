@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+    <title>LOGIN</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div> {{messages[0]}}.</div>
+    {% endif %}
+    {% endwith %}
+    <div class="login">
+        <h1>LOGIN</h1>
+        <form method="POST">
+            {{ form.csrf_token }}
+            <div>
+                {{form.email.label}}
+                {{form.email(size=30)}}
+            </div>
+            <div>
+                {{form.password.label}}
+                {{form.password(size=30)}}
+            </div>
+            <div class="field">
+                <label for="check">remember me</label>
+                    <input type="checkbox" name="check">
+            </div>
+            <button class="btn btn-primary btn-block btn-large">{{form.send}}</button>
+        </form>
+   </div>
+</body>
+</html>
