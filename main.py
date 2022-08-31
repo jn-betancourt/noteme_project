@@ -9,9 +9,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def home_page():
-    users = Users.query.all()
-    lenght = Users.query.count()
-    return render_template("homepage.html", users=users, lenght=lenght)
+    return render_template("homepage.html")
 
 
 @main.route('/profile')
