@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link type="text/css" href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
-    <title>LOGIN</title>
-</head>
+{% extends "layout/nav_bar.html" %}
+{% block title %}- login {%endblock%}
+{% block content %}
 <body>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -31,4 +27,4 @@
         </form>
    </div>
 </body>
-</html>
+{% endblock %}

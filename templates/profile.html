@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+{% extends "layout/nav_bar.html" %}
+{% block title %}- {{current_user.name}}{%endblock%}
+{% block content %}
+<body>
+    <h1>HOLA {{current_user.name}}!!</h1>
+</body>
+{% endblock %}

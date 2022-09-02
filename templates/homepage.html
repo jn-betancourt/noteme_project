@@ -1,65 +1,7 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <link type="text/css" href="{{ url_for('static', filename='css/homepage.css') }}" rel="stylesheet">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>HOLA MUNDO</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <header>-->
-<!--        <div class="contenedor-header">-->
-<!--            <div class="contenido" id="titulo"> Noteme :) </div>-->
-<!--            <div class="contenido" id="register"> <a href="/signup"> register </a> </div>-->
-<!--            <div class="contenido" id="login"> <a href="{{url_for('auth.login')}}"> log in </a> </div>-->
-<!--            <div class="contenido" id="logout"> <a href="{{url_for('auth.logout')}}"> log out </a></div>-->
-<!--        </div>-->
-<!--    </header>-->
-<!--    <h1>HOLA MUNDO!</h1>-->
-<!--    {% if name %}-->
-<!--    <p>HOLA {{ name }}</p>-->
-<!--    <p>Tu contraseña es {{password}} </p>-->
-<!--    {% else %} <p> No ha iniciado sesion </p> {% endif %}-->
-<!--</body>-->
-<!--</html>-->
-<!doctype html>
-<!--[if lte IE 9]>
-<html lang="en" class="oldie">
-<![endif]-->
-<!--[if gt IE 9]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bottom Navigation With CSS</title>
-  <link rel="stylesheet" media="all" href="{{url_for('static', filename='css/homepage.css')}}" type="text/css"/>
-</head>
-<body>
-<div class="container">
-  <div class="source"><a target="blank" href="https://dribbble.com/shots/5925052-Google-Bottom-Bar-Navigation-Pattern"><span>inspered from </span>Aurélien Salomon</a></div>
-  <div class="phone">
-    <div class="phone-footer">
-      <div class="nav">
-        <div class="nav-item">
-          <label for="Home"></label>
-          <input type="radio" name="nav" value="Home" id="Home" checked="checked"/><span>Home</span>
-        </div>
-        <div class="nav-item">
-          <label for="Signup"></label>
-          <input type="radio" name="nav" value="Likes" id="Signup"/><span>signup</span>
-        </div>
-        <div class="nav-item">
-          <label for="Login"></label>
-          <input type="radio" name="nav" value="Search" id="Login"/><span>login</span>
-        </div>
-        <div class="nav-item">
-          <label for="Profile"></label>
-          <input type="radio" name="nav" value="Profile" id="Profile"/><span>Profile</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
-
+{% extends "layout/nav_bar.html"%}
+{% block title %}- homepage{% endblock %}
+{% block content %}
+ <h3>
+     BIENVENIDO A NOTE ME :)
+ </h3>
+{% endblock %}
