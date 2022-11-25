@@ -1,2 +1,3 @@
-'FLASK_APP'= __init__.py
-'FLASK_DEBUG'=True
+FLASK_APP=entrypoint.py
+FLASK_DEBUG=True
+APP_SETTING_MODULE= 'config.testing'
