@@ -1,0 +1,39 @@
+{% extends "layout/nav_bar.html" %}
+{% block title %}- login {%endblock%}
+{% block content %}
+<body>
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+        <h3 class="title">LOGIN</h3>
+        <div class="hero is-info box">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div>
+                <p class="notification is-danger">{{messages[0]}}. </p>
+                </div>
+            {% endif %}
+            {% endwith %}
+                <form method="POST">
+                    {{ form.csrf_token }}
+                    <div class="field">
+                        {{form.email.label (class="label") }}
+                        {{form.email(size=30)}}
+                    </div>
+
+                    <div>
+                        {{form.password.label (class="label")}}
+                        {{form.password(size=30)}}
+                    </div>
+                    <div class="field">
+                        <label for="check">remember me</label>
+                        <input type="checkbox" name="remember">
+                    </div>
+                    <div class="field">
+                        {{form.send (class="button is-linked is-medium")}}
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

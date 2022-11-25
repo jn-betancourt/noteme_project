@@ -1,0 +1,42 @@
+{% extends "layout/nav_bar.html" %}
+{% block title%}- register{%endblock%}
+{% block content %}
+<body>
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+        <h3 class="title">REGISTER</h3>
+        <div class="hero is-warning box">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="notification is-danger">
+                <p>{{messages[0]}}. ve a <a href="{{url_for('auth.login')}}">login page</a></p>
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form method="POST">
+                {{ form.csrf_token }}
+                <div class="field">
+                    {{ form.name.label (class="label")}}
+                    {{ form.name(size=30) }}
+                </div>
+                <div class="field">
+                    {{ form.last_name.label (class="label")}}
+                    {{ form.last_name(size=30) }}
+                </div>
+                <div class="field">
+                    {{ form.email.label (class="label")}}
+                    {{ form.email(size=30) }}
+                </div>
+                <div class="field">
+                    {{ form.password.label (class="label")}}
+                    {{ form.password(size=30)}}
+                </div>
+                <div class="field">
+                    {{ form.send (class="button is-linked")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
