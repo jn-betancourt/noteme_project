@@ -1,4 +1,2 @@
-./migrations
-./idea
-./__pycache__
-./instance
+migrations/
+instance/
