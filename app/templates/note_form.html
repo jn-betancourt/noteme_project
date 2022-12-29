@@ -1,0 +1,35 @@
+{% extends "layout/nav_bar.html" %} 
+{% block title %}- note{%endblock%} 
+{% block content %}
+<div class="container has-text-centered" id="container">
+  <div class="column is-4 is-offset-4">
+    <div class="hero is-info box">
+  
+      {% if note[1] %}
+      <form method="post" id="{{ note[0][0]['id_note'] }}">
+        <label for="title">Title</label><br>
+        <input type="text" name="title" value="{{ note[0][0]['title'] }}"/><br />
+        <label for="description">Description</label><br>
+        <input type="text" id="description" name="description" value="{{ note[0][0]['description'] }}"/><br/>
+
+        <br/><button type="submit" class="button is-linked is-medium">Save</button>
+        <input type="hidden" name="_method" value="PUT"><br/>
+
+      </form>
+
+      {% else %}
+
+      <form method="post" id="{{ note[0][0]['id_note'] }}">
+        <label for="title">Title</label><br>
+        <input disabled="true" type="text" name="title" value="{{ note[0][0]['title'] }}"/><br />
+        <label for="description">Description</label><br>
+        <input disabled="true" type="text" id="description" name="description" value="{{ note[0][0]['description'] }}"/><br/>
+
+        <br/><button type="submit" class="button is-danger is-medium">Delete</button>
+        <input type="hidden" name="_method" value="DELETE"><br/>
+
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
