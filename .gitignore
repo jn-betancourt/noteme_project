@@ -1,1 +1,4 @@
-entrypoint.py
+migrations
+instance
+.idea
+*.__pycache__

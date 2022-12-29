@@ -15,6 +15,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/signup', methods=["POST", "GET"])
 def signup():
     form = UsersForm(obj=Users())
+    
     if request.method == 'POST':
         if Users.query.filter_by(email=form.email.data).first():
             flash('Este usuario ya fue registrado')

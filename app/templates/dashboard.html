@@ -2,6 +2,29 @@
 {% block title %}- dashboard{%endblock%}
 {% block content %}
     <ul>
+        {% if notes %}
+            {% for note in notes %}
+            <li>
+                <h2>{{ note["title"] }}</h2>
+                <p>{{ note["description"] }}</p>
+                <a href="{{ url_for('main.modify_note', id_note=note['id_note'])}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                        <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                        <line x1="16" y1="5" x2="19" y2="8" />
+                    </svg>
+                </a>
+                <a href="{{ url_for('main.del_note', id_note= note['id_note'])}}" _method="DELETE" >
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+                </a>
+            </li>
+            {% endfor %}
+        {% endif %}
     </ul>
     <div class="new-note">
         <button class="button is-link is-rounded" onclick="insertNote()"><strong>+</strong></button>

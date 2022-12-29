@@ -1,22 +1,22 @@
-const listado = document.querySelector("ul");
+const body = document.querySelector(".hero-body");
+
 
 async function insertNote(){
-    
-    let id= Math.random().toString(36).substring(5);
 
-    const nota = document.createElement("li");
-    nota.id = "n"+id;
-    nota.innerHTML = "<a href='#'><h2>Title #1</h2><p>Text Content #1</p></a>";
-    nota.addEventListener("click", ()=>{removeNote(nota.id)});
-    listado.appendChild(nota);
-    return ;
-}
+    var centeredDivAncestor = document.createElement('div');
+    centeredDivAncestor.className = "container has-text-centered";
+    centeredDivAncestor.id = "container";
+    body.insertAdjacentElement("afterbegin", centeredDivAncestor);
 
-async function removeNote(id){
-    
-    const child = document.querySelector("#"+id);
+    var centeredDiv = document.createElement('div');
+    centeredDiv.className = "column is-4 is-offset-4";
+    centeredDivAncestor.insertAdjacentElement("afterbegin", centeredDiv);
 
-    child.remove();
 
-    return ;
+    var html = document.createElement("div");
+    html.className = "hero is-info box";
+    html.innerHTML = "<form method='POST'><label for='title'>Title<br></label><input type='text' name='title'><br><label for='description'>Description</label><br><input type='text' id='description' name='description'><br><br><input type='submit' value='Save'></form>";
+    centeredDiv.insertAdjacentElement("afterbegin", html);
+
+    return;
 }

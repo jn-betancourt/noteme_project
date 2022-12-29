@@ -15,7 +15,7 @@ class Users(UserMixin, db.Model):
     last_name = db.Column(db.String(30))
     email = db.Column(db.String(250), unique=True)
     password = db.Column(db.String(250))
-    id_doc = db.Column(db.String(250), unique=True)
+    id_doc = db.Column(db.String(250), unique=True, default=" ")
 
     def __str__(self):
         return f"ID: {self.id} - Nombre: {self.name} - Email: {self.email}"
